@@ -2,8 +2,8 @@
  * Usage of CDK Matrix
  *
  * File:   example1.cc
- * Author: Stephen Perkins
- * Email:  stephen.perkins@utdallas.edu
+ * Author: Muhammad Faraaz
+ * Email:  mxf170530@utdallas.edu
  */
 
 #include <iostream>
