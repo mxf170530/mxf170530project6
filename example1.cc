@@ -8,14 +8,26 @@
 
 #include <iostream>
 #include "cdk.h"
+#include <stdint.h>
+#include <fstream>
+#include <iomanip>
 
 
-#define MATRIX_WIDTH 3
+#define MATRIX_WIDTH 5
 #define MATRIX_HEIGHT 3
 #define BOX_WIDTH 15
-#define MATRIX_NAME_STRING "Test Matrix"
+#define MATRIX_NAME_STRING "Binary File Contentsx"
 
 using namespace std;
+
+
+const int maxRecordStringLength = 25;
+class BinaryFileRecord
+{
+  public:
+  uint8_t strLength;
+  char   stringBuffer[maxRecordStringLength];
+};
 
 
 int main()
@@ -25,11 +37,22 @@ int main()
   CDKSCREEN	*cdkscreen;
   CDKMATRIX     *myMatrix;           // CDK Screen Matrix
 
-  const char 		*rowTitles[MATRIX_HEIGHT+1] = {"R0", "R1", "R2", "R3"};
-  const char 		*columnTitles[MATRIX_WIDTH+1] = {"C0", "C1", "C2", "C3"};
+  const char 		*rowTitles[MATRIX_HEIGHT+1] = {"C0", "a", "b", "c"};
+  const char 		*columnTitles[MATRIX_WIDTH+1] = {"C0", "a", "b", "c", "d", "e"};
   int		boxWidths[MATRIX_WIDTH+1] = {BOX_WIDTH, BOX_WIDTH, BOX_WIDTH, BOX_WIDTH};
   int		boxTypes[MATRIX_WIDTH+1] = {vMIXED, vMIXED, vMIXED, vMIXED};
+  /*
+  double myVal;
+  BinaryFileRecord *myRecord = new BinaryFileRecord();
 
+  ifstream binInfile ("CS3377.bin", ios::in | ios::binary);
+
+  binInfile.read((char *) myRecord, sizeof(BinaryFileRecord));
+ 
+  cout << myRecord->magicNumber << myRecord->versionNumber << endl;
+  binInfile.close();
+  return 0;
+  */
   /*
    * Initialize the Cdk screen.
    *
